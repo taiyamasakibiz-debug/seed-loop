@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Obsidian（端末ごとのUI状態・キャッシュは追跡しない／設定本体は追跡する）
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
+
+# 一時・ログ
+*.log
+.tmp/
+
+# ループ作業状態（transient。要点は ideas/ 側に転記される）
+.loop/
+
+# Claude Code 端末ローカル設定
+.claude/settings.local.json
