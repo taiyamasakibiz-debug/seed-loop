@@ -75,7 +75,7 @@ allowed-tools: Read, Write, Edit, AskUserQuestion, Bash
 - **合格ライン**（既定 80）と判定方式（既定 **全軸80のAND**）を確認。変えるなら `LOOP.md` と `run-loop.md` の記述も合わせる。
 
 ## ステップ4：起案ブリーフ（`config/ideator/`）
-`ideator` がこの用途で「案」を**どう作るか**を定義する（critic↔`config/axes/` / gatekeeper↔`config/gates/` と同じディレクトリ構造の config 参照型）。`config/ideator/brief.md` に、`templates/ideator.md` を下敷きに書く：
+`ideator` がこの用途で「案」を**どう作るか**を定義する（critic↔`config/axes/` / gatekeeper↔`config/gates/` と同じディレクトリ構造の config 参照型）。`config/ideator/brief.md` を、`templates/brief.md` を下敷きに作成する：
 - **出力フォーマット**：案に必ず含める見出し。**`config/gates/` と `config/axes/` が問う観点を確実にカバーできる構成**にする。
   - 例：事業創出＝タイトル/サマリ/顧客と課題/解決策/収益モデル/模倣困難性/スケール。組織改善＝課題/改善案/コスト対効果/実現手順/リスク・整合。
 - **起案スタンス（任意）**：この用途固有の発想方針（例：新規性より再解釈・転用を重視／トレンドの扱い）。
