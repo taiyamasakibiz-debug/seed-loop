@@ -74,8 +74,8 @@ allowed-tools: Read, Write, Edit, AskUserQuestion, Bash
 - 軸間の**ダブルカウント回避**を一言入れる（各軸が「何を見て・何を見ないか」を明示）。
 - **合格ライン**（既定 80）と判定方式（既定 **全軸80のAND**）を確認。変えるなら `LOOP.md` と `run-loop.md` の記述も合わせる。
 
-## ステップ4：起案ブリーフ（`config/ideator.md`）
-`ideator` がこの用途で「案」を**どう作るか**を定義する（critic↔axes / gatekeeper↔gates と同じく config 参照型）。`templates/ideator.md` を下敷きに：
+## ステップ4：起案ブリーフ（`config/ideator/`）
+`ideator` がこの用途で「案」を**どう作るか**を定義する（critic↔`config/axes/` / gatekeeper↔`config/gates/` と同じディレクトリ構造の config 参照型）。`config/ideator/brief.md` に、`templates/ideator.md` を下敷きに書く：
 - **出力フォーマット**：案に必ず含める見出し。**`config/gates/` と `config/axes/` が問う観点を確実にカバーできる構成**にする。
   - 例：事業創出＝タイトル/サマリ/顧客と課題/解決策/収益モデル/模倣困難性/スケール。組織改善＝課題/改善案/コスト対効果/実現手順/リスク・整合。
 - **起案スタンス（任意）**：この用途固有の発想方針（例：新規性より再解釈・転用を重視／トレンドの扱い）。
@@ -103,5 +103,5 @@ allowed-tools: Read, Write, Edit, AskUserQuestion, Bash
 - git にコミットするか尋ねる（`config/` と `.claude/agents/` をまとめて）。
 
 ## 終了条件
-`config/founder-profile.md`（目的に合わせた前提）、**起案ブリーフ `config/ideator.md`**、**最低1つの gate**、**最低1つの axis（点数バンド付き）** が揃い、
+`config/founder-profile.md`（目的に合わせた前提）、**起案ブリーフ `config/ideator/`（最低1ファイル）**、**最低1つの gate**、**最低1つの axis（点数バンド付き）** が揃い、
 各エージェントの `model` が設定されていること。

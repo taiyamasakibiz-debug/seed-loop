@@ -29,7 +29,7 @@ seed（課題・テーマ）
 ## 設計：エンジンとインスタンスの分離
 - **エンジン（`.claude/`）** = 汎用・ドメイン非依存。`ideator` / `gatekeeper` / `critic` と `run-loop`。
 - **インスタンス（`config/`）** = 目的固有。差し替え可能。
-- 各エージェントのインスタンス固有部分は config から読む：`ideator`→`config/ideator.md`（起案ブリーフ）、`gatekeeper`→`config/gates/`、`critic`→`config/axes/`。
+- 各エージェントのインスタンス固有部分は config から読む：`ideator`→`config/ideator/`（起案ブリーフ）、`gatekeeper`→`config/gates/`、`critic`→`config/axes/`。
 - `critic` は `config/axes/` のファイル数だけ、`gatekeeper` は `config/gates/` の数だけ起動する。
   → **評価軸・足切りの増減も、案の作り方の変更も config のみ。エンジンは書き換えない。**
 
@@ -40,12 +40,12 @@ seed（課題・テーマ）
 | `LOOP.md` | 管制パネル（合格条件・修正上限・Human Gate・予算・安全方針） |
 | `STATE.md` | 横断メモリ（最終実行・承認待ち・消費済み seed・没の要約） |
 | `.claude/commands/run-loop.md` | **オーケストレータ**。`/run-loop [seed]` で1サイクルを指揮する指示書 |
-| `.claude/agents/ideator.md` | **起票者(Maker)**。`config/ideator.md`・前提プロファイル・seed から案を起草。`model:` で使用モデル指定 |
+| `.claude/agents/ideator.md` | **起票者(Maker)**。`config/ideator/`・前提プロファイル・seed から案を起草。`model:` で使用モデル指定 |
 | `.claude/agents/gatekeeper.md` | **足切り**。`config/gates/` を二値 PASS/FAIL 判定（採点はしない） |
 | `.claude/agents/critic.md` | **採点者**。`config/axes/` の1軸を反証ファーストで 0–100 点（独立コンテキスト） |
 | `.claude/skills/loop-setup/` | **セットアップウィザード**。`/loop-setup` で `config/` を対話構築 |
 | `config/founder-profile.md` | **前提プロファイル**。全判定が従う「隠れた前提」（利用目的別に作る） |
-| `config/ideator.md` | **起案ブリーフ**。ideator がこの用途で案をどう構成・発想するか（出力フォーマット／起案スタンス） |
+| `config/ideator/*.md` | **起案ブリーフ**。ideator がこの用途で案をどう構成・発想するか（出力フォーマット／起案スタンス） |
 | `config/gates/*.md` | **足切り基準**（二値）。1ファイル = 1ゲート |
 | `config/axes/*.md` | **採点軸**。1ファイル = 1軸（問い／レンズ／**点数バンド**／出力形式） |
 | `config/seeds/*` | **起票の入力（種）**。関心領域・課題など。空でも引数指定で起動可 |

@@ -10,7 +10,7 @@ seed（課題・テーマ）を入れると AI が案を起票し、独立した
 ## 構成の原則（エンジン / インスタンス分離）
 - **エンジン（`.claude/`）** = 汎用・ドメイン非依存。`ideator` / `gatekeeper` / `critic` と `run-loop`。
 - **インスタンス（`config/`）** = 今回の設定。差し替え可能。
-- 各エージェントはインスタンス固有部分を **config から読む**：`ideator`→`config/ideator.md`（起案ブリーフ）、`gatekeeper`→`config/gates/`、`critic`→`config/axes/`。
+- 各エージェントはインスタンス固有部分を **config から読む**：`ideator`→`config/ideator/`（起案ブリーフ）、`gatekeeper`→`config/gates/`、`critic`→`config/axes/`。
 - `critic` は `config/axes/` のファイル数だけ、`gatekeeper` は `config/gates/` の基準数だけ評価する。
   → **評価軸・足切りの増減も、案の作り方の変更も config のみ。エンジン（`.claude/`）は書き換えない。**
 
